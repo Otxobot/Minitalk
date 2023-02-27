@@ -6,7 +6,7 @@
 #    By: abasante <abasante@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 11:08:39 by abasante          #+#    #+#              #
-#    Updated: 2023/02/27 13:17:53 by abasante         ###   ########.fr        #
+#    Updated: 2023/02/27 13:20:18 by abasante         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ clean:
 	make -C libft clean
 
 fclean: clean
-
 	rm -f server client libft/libft.a
 
 re: fclean all
