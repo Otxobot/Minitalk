@@ -6,30 +6,24 @@
 #    By: abasante <abasante@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 11:08:39 by abasante          #+#    #+#              #
-#    Updated: 2023/02/27 11:08:41 by abasante         ###   ########.fr        #
+#    Updated: 2023/02/27 12:53:13 by abasante         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SOURCES = server.c client.c
-OBJECTS = $(SOURCES:.c=.o)
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+NAME = server client
+OBJECTS = server.o client.o
 
-all: server client
+all: $(NAME)
 
-bonus: server client
-
-server: server.o libft
+$(NAME): $(OBJECTS) $(LIBFT)
+	$(CC) -O $@ $< -Llibft -lft
 	$(CC) -o $@ $< -Llibft -lft
 
-client: client.o libft
-	$(CC) -o $@ $< -Llibft -lft
-
-%.o: %.c
-	$(CC) -c $(CFLAGS) $?
-
-libft:
+$(LIBFT):
 	make -C libft
 
 clean:
